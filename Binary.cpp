@@ -75,6 +75,8 @@ Binary::~Binary()
 Binary& Binary::operator++(int blah)
 {
 	// TODO: implement this
+
+
 	return *this;
 }
 
@@ -96,7 +98,11 @@ Binary Binary::operator+(const Binary& other) const
 {
 	Binary res;
 	// TODO: implement this
-	
+	int x=this->operator int();
+
+	int y=other.operator int();
+
+	res=Binary(x+y);
 
 
 	return res;
@@ -106,6 +112,18 @@ Binary Binary::operator+(const Binary& other) const
 Binary& Binary::operator=(const Binary& other)
 {
 	// TODO: implement this
+	this->size_=other.size_;
+
+	delete[] this->number_;
+
+	this->number_=new bool[this->size_];
+
+	for(int i=0;i<this->size_;i++){
+
+		this->number_[i]=other.number_[i];
+
+	}
+
 	return *this;
 }
 
